@@ -3,6 +3,7 @@ import cors from "cors";
 
 import authRoutes from "./routes/auth.routes";
 import productRoutes from "./routes/product.routes";
+import wishlistRoutes from "./routes/wishlist.routes";
 
 const app = express();
 
@@ -11,4 +12,5 @@ app.use(express.json());
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/products", productRoutes);
+app.use("/api/v1/wishlist",wishlistRoutes);
 export default app;
