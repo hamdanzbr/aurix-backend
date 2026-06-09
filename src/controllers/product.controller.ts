@@ -35,14 +35,16 @@ export const getProductsController = async (
     const page = Number(req.query.page) || 1;
     const limit = Number(req.query.limit) || 10;
 
-    const filters = {
-      category: req.query.category,
-      finish: req.query.finish,
-      feature: req.query.feature,
-      minPrice: req.query.minPrice,
-      maxPrice: req.query.maxPrice,
-      sortBy: req.query.sortBy,
-    };
+const filters = {
+  categories: req.query.categories,
+  finishes: req.query.finishes,
+  features: req.query.features,
+
+  minPrice: req.query.minPrice,
+  maxPrice: req.query.maxPrice,
+
+  sortBy: req.query.sortBy,
+};
 
     const result = await getProductsService(
       filters,

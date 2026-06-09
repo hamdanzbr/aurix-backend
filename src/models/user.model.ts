@@ -33,6 +33,10 @@ const userSchema = new Schema<IUser>(
       type: String,
     },
 
+    primaryGoal:{
+      type: String,
+    },
+
     role: {
       type: String,
       enum: ["user", "admin"],

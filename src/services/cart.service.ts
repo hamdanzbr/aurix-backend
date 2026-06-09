@@ -34,7 +34,42 @@ export const addToCartService = async (
 export const getCartService = async (
   userId: string
 ) => {
-  return getCartItems(userId);
+  const cartItems =
+    await getCartItems(userId);
+
+  let subtotal = 0;
+  let totalItems = 0;
+
+  const items = cartItems.map(
+    (item: any) => {
+      const product =
+        item.productId;
+
+      const unitPrice =
+        product.discountPrice ||
+        product.price;
+
+      const itemTotal =
+        unitPrice *
+        item.quantity;
+
+      subtotal += itemTotal;
+
+      totalItems +=
+        item.quantity;
+
+      return {
+        ...item.toObject(),
+        itemTotal,
+      };
+    }
+  );
+
+  return {
+    items,
+    subtotal,
+    totalItems,
+  };
 };
 
 export const updateCartService = async (

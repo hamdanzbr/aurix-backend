@@ -27,7 +27,7 @@ export const getCartItems = async (
     userId,
   }).populate(
     "productId",
-    "name slug price discountPrice images stock"
+    "name slug price discountPrice images stock description"
   );
 };
 

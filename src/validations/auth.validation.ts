@@ -10,6 +10,8 @@ export const registerSchema = z.object({
   password: z.string().min(6),
 
   phoneNumber: z.string().optional(),
+
+  primaryGoal: z.string().optional(),
 });
 
 export const loginSchema = z.object({

@@ -37,17 +37,32 @@ export const getProducts = async (
     isActive: true,
   };
 
-  if (filters.category) {
-    query.category = filters.category;
-  }
+if (filters.categories) {
+  const categories =
+    filters.categories.split(",");
 
-  if (filters.finish) {
-    query.availableFinishes = filters.finish;
-  }
+  query.category = {
+    $in: categories,
+  };
+}
 
-  if (filters.feature) {
-    query.features = filters.feature;
-  }
+if (filters.finishes) {
+  const finishes =
+    filters.finishes.split(",");
+
+  query.availableFinishes = {
+    $in: finishes,
+  };
+}
+
+if (filters.features) {
+  const features =
+    filters.features.split(",");
+
+  query.features = {
+    $in: features,
+  };
+}
 
   if (filters.minPrice || filters.maxPrice) {
     query.price = {};

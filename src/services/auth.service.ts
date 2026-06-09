@@ -37,6 +37,7 @@ export const registerUserService = async (data: any) => {
     name: user.name,
     username: user.username,
     email: user.email,
+    primaryGoal: user.primaryGoal,
   },
   accessToken,
 };
@@ -64,6 +65,7 @@ export const loginUserService = async (data: LoginInput) => {
     name: user.name,
     username: user.username,
     email: user.email,
+    primaryGoal: user.primaryGoal,
   },
   accessToken,
 };

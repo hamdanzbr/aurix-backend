@@ -6,6 +6,7 @@ export interface IUser extends Document {
   email: string;
   password: string;
   phoneNumber?: string;
+  primaryGoal?: string;
   role: "user" | "admin";
   isBlocked: boolean;
   isVerified: boolean;
