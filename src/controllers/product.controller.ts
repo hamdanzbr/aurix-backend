@@ -36,6 +36,7 @@ export const getProductsController = async (
     const limit = Number(req.query.limit) || 10;
 
 const filters = {
+  keyword: req.query.keyword,
   categories: req.query.categories,
   finishes: req.query.finishes,
   features: req.query.features,

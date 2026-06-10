@@ -64,6 +64,23 @@ if (filters.features) {
   };
 }
 
+if (filters.keyword) {
+  query.$or = [
+    {
+      name: {
+        $regex: filters.keyword,
+        $options: "i",
+      },
+    },
+    {
+      description: {
+        $regex: filters.keyword,
+        $options: "i",
+      },
+    },
+  ];
+}
+
   if (filters.minPrice || filters.maxPrice) {
     query.price = {};
 
